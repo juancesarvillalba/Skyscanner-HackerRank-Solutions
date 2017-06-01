@@ -1,5 +1,19 @@
+// the test framework
 let assert = require('assert')
 
-it('should work', () => {
-  assert.equal(-1, [1,2,3].indexOf(4));
-});
+// the input
+let stdin = `
+`
+
+// the expectation
+let expected = `
+`
+// the test
+it('meets the expectation', () =>
+    assert.equal(main(stdin), expected))
+
+// the code
+
+function main(input) {
+    return '\n';
+}
