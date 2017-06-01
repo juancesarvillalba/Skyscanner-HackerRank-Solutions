@@ -1,0 +1,10 @@
+{
+  "name": "skyscanner-hackerrank",
+  "version": "1.0.0",
+  "description": "Heh.",
+  "main": "index.js",
+  "license": "WTFPL",
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  }
+}
