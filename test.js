@@ -42,16 +42,7 @@ function main(input) {
             return acc;
         }, {});
 
-//     let destinationsWithCount = destinations
-//         .reduce((acc, dest) =>
-//             acc.has(dest)
-//                 ? acc.set(dest, acc.get(dest)+1)
-//                 : acc.set(dest, 1)
-//             , new Map())
-
-    let count = 0,
-        result;
-
+    let count = 0, result
     for (let dest in obj) {
         if (obj[dest] > count) {
             count = obj[dest]
@@ -59,4 +50,27 @@ function main(input) {
         }
     }
     return result;
+}
+
+
+// alternative code, using Map instead of Object
+function main2(input) {
+    let lines = input.split('\n'),
+        destinations = lines.slice(1)
+
+    let map = destinations
+        .reduce((acc, dest) =>
+            acc.has(dest)
+                ? acc.set(dest, acc.get(dest)+1)
+                : acc.set(dest, 1)
+        , new Map())
+
+    let count = 0, result
+    for (var [ dest, occurrences ] of map) {
+        if (occurrences > count) {
+            count = occurrences
+            result = dest
+        }
+    }
+    return result
 }
