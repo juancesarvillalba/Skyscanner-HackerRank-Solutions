@@ -41,6 +41,49 @@ it('meets the expectation 2', () =>
 it('meets the expectation 3', () =>
     assert.equal(main(stdin3), expected3))
 
+let tree = {
+    nodeName: "Sarah",
+    children: [
+        {
+            nodeName: "Fred",
+            children: [
+                {
+                    nodeName: "Hilary",
+                    children: []
+                },
+                {
+                    nodeName: "Jenny",
+                    children: [
+                        {
+                            nodeName: "James",
+                            children: []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            nodeName: "Paul",
+            children: []
+        }
+    ]
+}
+
+it('finds the employee Sarah', () =>
+    assert(findEmployee('Sarah', tree)))
+
+it('finds the employee Fred', () =>
+    assert(findEmployee('Fred', tree)))
+
+it('finds the employee Hilary', () =>
+    assert(findEmployee('Hilary', tree)))
+
+it('finds the employee Jenny', () =>
+    assert(findEmployee('Jenny', tree)))
+
+it('finds the employee James', () =>
+    assert(findEmployee('James', tree)))
+
 
 // the code
 function main(input) {
@@ -48,5 +91,11 @@ function main(input) {
         employeesNumber = lines[0],
         selectedEmployees = lines.slice(1, 3),
         relationships = lines.slice(3, lines.length)
+}
 
+function findEmployee(name, tree) {
+    return tree.nodeName === name
+        ? tree
+        : tree.children.map(subTree =>
+            findEmployee(name, subTree))
 }
