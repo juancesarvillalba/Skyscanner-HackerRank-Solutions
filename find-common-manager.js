@@ -67,22 +67,12 @@ let tree = {
             children: []
         }
     ]
-}
+};
 
-it('finds the employee Sarah', () =>
-    assert(findEmployee('Sarah', tree)))
-
-it('finds the employee Fred', () =>
-    assert(findEmployee('Fred', tree)))
-
-it('finds the employee Hilary', () =>
-    assert(findEmployee('Hilary', tree)))
-
-it('finds the employee Jenny', () =>
-    assert(findEmployee('Jenny', tree)))
-
-it('finds the employee James', () =>
-    assert(findEmployee('James', tree)))
+['Sarah', 'Fred', 'Hilary', 'Jenny', 'James'].forEach(name => {
+    it(`finds the employee ${name}`, () =>
+        assert(findEmployee(name, tree)))
+})
 
 
 // the code
