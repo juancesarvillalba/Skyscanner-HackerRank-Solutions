@@ -127,13 +127,32 @@ it('updates a tree', () =>
 // the code
 function main(input) {
     let lines = input.split('\n'),
-        employeesNumber = lines[0],
         selectedEmployees = lines.slice(1, 3),
         relationships = lines.slice(3, lines.length)
-            .map(rel => rel.split(' ')),
-        tree = makeTree(relationships)
+            .map(rel => rel.split(' '))
+            .reverse(),
+        employee1 = [selectedEmployees[0]],
+        employee2 = [selectedEmployees[1]],
+        allUniqueEmployees = relationships
+            .reduce((a,b) => a.concat(b))
+            .filter((v,i,a) => a.indexOf(v) === i);
 
-    // console.log(relationships)
+    for (let emp of [selectedEmployees[0], selectedEmployees[1]]) {
+        relationships.forEach(([manager, employee]) => {
+            if (employee === employee1[employee1.length-1]) {
+                employee1.push(manager);
+            }
+            if (employee === employee2[employee2.length-1]) {
+                employee2.push(manager);
+            }
+        })
+    }
+
+    for (let emp of allUniqueEmployees) {
+        if (employee1.includes(emp) && employee2.includes(emp)) {
+            return emp;
+        }
+    }
 }
 
 
