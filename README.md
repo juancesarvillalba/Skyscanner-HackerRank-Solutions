@@ -1,3 +1,7 @@
+# Skyscanner HackerRank Solutions
+
+My solutions to [Skyscanner's challenges](https://github.com/tristaneljed/Skyscanner-HackerRank-Most-Popular-Destination) on HackerRank.
+
 ## Getting started
 
 1. Clone the repo
@@ -5,7 +9,9 @@
 3. Run `yarn install`
 4. Run `node_modules/.bin/mocha`
 
-If everything works, you should see one green test.
+If everything works, you should see green tests.
+
+## The Challenges
 
 ### Find the Most Popular Destination
 
@@ -49,6 +55,8 @@ Examples:
 ```
     Singapore
 ```
+
+---
 
 ### Find the Common Manager
 
@@ -107,3 +115,7 @@ Examples:
 ```
     June
 ```
+
+---
+
+There are different ways to solve these problems, if you have any suggestions feel free to improve or write a new solution. Pull requests are welcome!
